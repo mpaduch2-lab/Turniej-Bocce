@@ -1,8 +1,8 @@
 # Karta zgłoszenia tematu projektu
 
-**Grupa:** L2 · **Zespół:** Z.. · **Data:** ..........
+**Grupa:** L2 · **Data:** ..........
 Sztuczna inteligencja — laboratorium · Collegium Da Vinci · rok akad. 2026/2027
-Oddajecie mailem do **22.10, 16:45**, temat `SI L2 · Z<nr zespołu> · karta`.
+Oddajecie mailem do **22.10, 16:45**, temat `SI L2 · karta`.
 
 ## 1. Skład zespołu
 
@@ -10,47 +10,34 @@ Oddajecie mailem do **22.10, 16:45**, temat `SI L2 · Z<nr zespołu> · karta`.
 
 | Imię i nazwisko | Nr albumu | Rola (wstępna) |
 |---|---|---|
-| | | |
-| | | |
-| | | |
+| Mateusz Paduch | 31162 | Duchnik |
 
 ## 2. Roboczy tytuł (PL)
 
+Dobieranie do składu drużyny w grę Bocce.
+
 ## 3. Tytuł (EN)
+
+Selecting team members for a game of Bocce.
 
 ## 4. Problem — co system ma robić i dla kogo (3–5 zdań)
 
-## 5. Technologia SI
+Dobiera skład drużyn po trzech zawodników/zawodniczek. Dba o to, aby drużyny były zrównoważone (patrząc na statystyki). System będzie przeznaczony dla organizatorów/organizatorek turniejów.
 
-- [ ] sieć neuronowa
-- [ ] system ekspertowy / wnioskowanie regułowe
-- [ ] algorytm genetyczny
-- [ ] klasyczne uczenie maszynowe
+## 5. Dane
 
-Dlaczego ta technologia pasuje do tego problemu (2–3 zdania):
+- Źródło: Spis osób uczestniczących w turneju Bocce
+- Rozmiar / format: CSV
+- Czy dane są już dostępne? nie — plan pozyskania: Wygenerujemy losowe dane
 
-## 6. Dane
+## 6. Kryterium sukcesu
 
-- Źródło:
-- Rozmiar / format:
-- Czy dane są już dostępne? tak / nie — plan pozyskania:
+- Metryka i próg: Funkcja zrównoważenia drużyn. Zestaw najmniej różniących się drużyn. Jak najmniejsza różnica statystyk między drużynami.
+- Punkt odniesienia (prosta metoda, z którą porównacie wynik): Wynik z algorytmu zachłannego.
 
-## 7. Stos technologiczny
+## 7. Zakres minimalny (co powstanie na pewno)
 
-## 8. Kryterium sukcesu
-
-- Metryka i próg:
-- Punkt odniesienia (prosta metoda, z którą porównacie wynik):
-
-## 9. Zakres minimalny (co powstanie na pewno)
-
-## 10. Zakres opcjonalny (co dorobimy, jeśli starczy czasu)
-
-## 11. Repozytorium
-
-(uzupełnicie 22.10)
-
-## 12. Główne ryzyko i plan awaryjny
+System, który z listy uczestników i opisu ich umiejętności będzie układał zrównoważone drużyny do turnieju Bocce.
 
 ---
 
