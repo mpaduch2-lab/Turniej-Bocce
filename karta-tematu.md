@@ -24,7 +24,7 @@ Selecting team members for a game of Bocce.
 
 Dobiera skład drużyn po trzech zawodników/zawodniczek. Dba o to, aby drużyny były zrównoważone (patrząc na statystyki). System będzie przeznaczony dla organizatorów/organizatorek turniejów.
 
-## 5. Dan
+## 5. Dane
 
 - Źródło: Spis osób uczestniczących w turneju Bocce
 - Rozmiar / format: CSV
