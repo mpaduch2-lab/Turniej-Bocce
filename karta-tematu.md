@@ -10,8 +10,6 @@ Oddajecie mailem do **22.10, 16:45**, temat `SI L2 · karta`.
 
 ## . Skład zespołu
 
-> Rola jest wstępna — można ją zmienić w trakcie projektu bez uzgadniania.
-
 | Imię i nazwisko | Nr albumu | Rola (wstępna) |
 | Antonina Bentyn | 29211 | Duchnik & Ben |
 | Mateusz Paduch | 31162 | Duchnik & Ben |
