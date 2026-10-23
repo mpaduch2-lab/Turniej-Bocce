@@ -6,23 +6,25 @@
 Sztuczna inteligencja — laboratorium · Collegium Da Vinci · rok akad. 2026/2027
 Pierwsza wersja: mailem do **22.10, 16:45**. Poprawki: mailem do **29.10, 16:45**. Temat maila: `SI L2 · Z9 · karta`.
 
-## 1. Skład zespołu
+## 1. Nr. zespołu
 
-> Rola jest wstępna — można ją zmienić w trakcie projektu bez uzgadniania.
+9
+
+## 2. Skład zespołu
 
 | Imię i nazwisko | Nr albumu | Rola (wstępna) |
 | Antonina Bentyn | 29211 | Duchnik & Ben |
 | Mateusz Paduch | 31162 | Duchnik & Ben |
 
-## 2. Roboczy tytuł (PL)
+## 3. Roboczy tytuł (PL)
 
 Dobieranie do składu drużyny w grę Bocce.
 
-## 3. Tytuł (EN)
+## 4. Tytuł (EN)
 
 Selecting team members for a game of Bocce.
 
-## 4. Problem — co system ma robić i dla kogo (3–5 zdań)
+## 5. Problem — co system ma robić i dla kogo (3–5 zdań)
 
 Dobiera skład drużyn po trzech zawodników/zawodniczek. Dba o to, aby drużyny były zrównoważone (patrząc na statystyki). System będzie przeznaczony dla organizatorów/organizatorek turniejów.
 
