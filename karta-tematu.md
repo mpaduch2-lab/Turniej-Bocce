@@ -12,8 +12,8 @@ Pierwsza wersja: mailem do **22.10, 16:45**. Poprawki: mailem do **29.10, 16:45*
 
 | Imię i nazwisko | Nr albumu | Rola (wstępna) |
 | --- | --- | --- |
-| Antonina Bentyn | 29211 | Porównanie, Wyniki, Dokumentacja |
 | Mateusz Paduch | 31162 | Generowanie danych, Algorytm, Dokumentacja |
+| Antonina Bentyn | 29211 | Porównanie, Wyniki, Dokumentacja |
 
 ## 2. Roboczy tytuł (PL)
 
@@ -37,7 +37,7 @@ Dobiera skład drużyn po trzech zawodników/zawodniczek. Dba o to, aby drużyny
 
 Uzasadnienie (2–3 zdania):
 
-Zwykły algorytm nie pasuje do problemu gdyż ma on zbyt wiele parametrów i możliwości. Algorytm zwykły zająłby zbyt dużo czasu dla dużej liczby uczesników. Ilość kombinacji do sprawdzenia dla n zawodników (podzielonych na drużyny trzyosobowe) wyraża się wzorem:
+Zwykły algorytm nie pasuje do problemu gdyż ma on zbyt wiele parametrów i możliwości. Algorytm zwykły zająłby zbyt dużo czasu dla dużej liczby uczestników. Ilość kombinacji do sprawdzenia dla n zawodników (podzielonych na drużyny trzyosobowe) wyraża się wzorem:
 
 $$
 T(n) = \frac{n!} {(3!)^{\frac{n} {3}}(\frac{n}{3})!}
@@ -62,7 +62,7 @@ Sprawdzając 1 miliard podziałów na sekundę sprawdzenie wszystkich podziałó
 
 Dlaczego ta technologia pasuje do tego problemu (2–3 zdania):
 
-Ta technologia ta technologia bardzo szybka przeszukuje duże przestrzenie rozwiązań oraz znajduje optymalne lub bliskie optymalnemu rozwiązanie problemu. Osobnikiem w tym przypadku będzie ciąg liczb od 1 do 48 z którego każde kolejne 3 osoby trafiają odpowiednio do drużyn od 1 do 16. Funkcja przystosowania będzie przypisywać wartość $\infin$ tym ciągom, które będą posiadały powtórki, a dla pozostałych będzie obliczał:
+Ta technologia bardzo szybko przeszukuje duże przestrzenie rozwiązań oraz znajduje optymalne lub bliskie optymalnemu rozwiązanie problemu. Osobnikiem w tym przypadku będzie ciąg liczb od 1 do 48 z którego każde kolejne 3 osoby trafiają odpowiednio do drużyn od 1 do 16. Funkcja przystosowania będzie przypisywać wartość $\infin$ tym ciągom, które będą posiadały powtórki, a dla pozostałych będzie obliczał:
 
 $$
 \sum_{j=1}^7 w_j(\frac 1 3(S[x_{3i-2}, j] + S[x_{3i-1}, j] + S[x_{3i}, j]) - \mu_j)^2
@@ -73,7 +73,7 @@ $$
 
 - Źródło: Spis osób uczestniczących w turneju Bocce
 - Rozmiar / format: CSV o kolumnach (Imię i nazwisko, Celność, Panowanie nad stresem, Poziom koncentracji, Siła rzutu, Skuteczność rzutów, Dostosowywanie się do terenu, Umiejętność czytania gry) i $48$ wierszach. Wszystkie wartości numeryczne będą z przedziału $[0,1]$
-- Czy dane są już dostępne? nie — plan pozyskania: Wygenerujemy losowe dane rozkładem normalnym ograniczonym do przedziału $[0,1]$ ze średnią w $0.5$ oraz wariancji $0,0289$ - $\mathcal{N}(0.5, 0,0289)$
+- Czy dane są już dostępne? nie — plan pozyskania: Wygenerujemy losowe dane rozkładem normalnym ograniczonym do przedziału $[0,1]$ ze średnią w $0.5$ oraz wariancji $0.1$ - $\mathcal{N}(0.5, 0.1)$
 
 ## 7. Stos technologiczny
 
@@ -98,7 +98,7 @@ $$
 
 
 - Punkt odniesienia (prosta metoda, z którą porównacie wynik): 
-Losowym podział zawodników na 16 drużyn po 3 osoby.
+Losowy podział zawodników na 16 drużyn po 3 osoby.
 Powinien on dawać różne wyniki, ale średnio może być mniej wyrównany niż podział zoptymalizowany.
 Jeśli wynik będzie podobny, może to oznaczać, że algorytm genetyczny nie poprawia istotnie jakości podziału albo, że trzeba przyjąć inną metrykę.
 Algorytmy porównamy w takich konfiguracjach:
@@ -115,14 +115,14 @@ Algorytmy porównamy w takich konfiguracjach:
 - Wczytywanie i walidacja danych — moduł odczytujący pliki CSV i sprawdzający poprawność danych, liczbę zawodników oraz zakres wartości statystyk.
 - Funkcja oceny podziału — implementacja funkcji MSE mierzącej zrównoważenie drużyn na podstawie siedmiu statystyk.
 - Losowy podział zawodników — implementacja metody bazowej tworzącej drużyny po trzy osoby oraz obliczającej wynik MSE.
-- Algorytm genetyczny — implementacja algorytmu w bibliotece PyGAD, który wyszukuje podział zawodników na zrównoważone drużyny. Rozwiązania będą kodowane jako permutacje indeksów zawodników, dzięki czemu każdy zawodnik wystąpi dokładnie raz.
+- Algorytm genetyczny — implementacja algorytmu oraz porównanie z biblioteką PyGAD, który wyszukuje podział zawodników na zrównoważone drużyny. Rozwiązania będą kodowane jako permutacje indeksów zawodników, dzięki czemu każdy zawodnik wystąpi dokładnie raz.
 - Eksperyment porównawczy — wykonanie 1000 losowych podziałów i 30 uruchomień algorytmu genetycznego dla każdego zestawu danych.
 - Analiza wyników — zapis wyników eksperymentów do plików oraz porównanie średnich wartości MSE obu metod. Przygotujemy wykresy pokazujące uzyskane wyniki dla różnych liczebności grup.
 - Dokumentacja i instrukcja uruchomienia — opis sposobu przygotowania danych, działania funkcji celu, konfiguracji algorytmu genetycznego oraz przeprowadzonych eksperymentów. Dokumentacja będzie zawierać wymagane sekcje w języku angielskim.
 
 ## 10. Zakres opcjonalny (co dorobimy, jeśli starczy czasu)
 
-W ramach rozszerzenia algorytm będzie uwzględniał role zawodników w grze Bocce: pointeur (zawodnik precyzyjnie umieszczający kule), milieu (zawodnik pełniący rolę wszechstronną) oraz tireur (zawodnik specjalizujący się w wybijaniu kul przeciwnika).
+W ramach rozszerzenia algorytm będzie uwzględniał role zawodników w grze Bocce: pointeur (zawodnik precyzyjnie umieszczający bile), milieu (zawodnik pełniący rolę wszechstronną) oraz tireur (zawodnik specjalizujący się w wybijaniu kul przeciwnika).
 
 Rozszerzenie obejmie przypisanie zawodnikom dodatkowych ocen określających ich predyspozycje do poszczególnych ról oraz modyfikację funkcji celu tak, aby uwzględniała zarówno zrównoważenie drużyn pod względem umiejętności, jak i odpowiednie uzupełnianie się zawodników.
 
