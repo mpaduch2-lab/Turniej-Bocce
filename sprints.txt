@@ -1,0 +1,13 @@
+=== Sprint 5.11 ===
+Zobowiązanie z poprzednich zajęć: Przeprowadzenie ewaluacji i przygotowanie sekcji 5 dokumentacji – zrobione
+
+[Antonina Bentyn]
+Zrobiłam: Przygotowałam skrypt porownanie.py do obliczeń MSE (losowy baseline vs PyGAD) dla 12, 24 i 48 graczy, wygenerowałam wykresy porównawcze PNG oraz opisałam Sekcję 5 (Ewaluacja) w dokumentacja.md.
+Na następne zajęcia zrobię: Pomogę przy dopracowaniu końcowej dokumentacji i prezentacji projektu.
+
+[Mateusz Paduch]
+Zrobiłem: 
+Na następne zajęcia zrobię: 
+
+Blokuje nas: nic
+Zobowiązanie zespołu na następne zajęcia: Sfinalizowanie dokumentacji i przygotowanie projektu do oddania.
