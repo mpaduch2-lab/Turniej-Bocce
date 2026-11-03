@@ -1,0 +1,16 @@
+=== Sprint 5.11 ===
+Zobowiązanie z poprzednich zajęć: Przeprowadzenie ewaluacji i przygotowanie sekcji 5 dokumentacji – zrobione
+
+[Antonina Bentyn]
+Zrobiłam:
+- Przygotowałam i uruchomiłam skrypt porównawczy (porownanie.py) wyznaczający uśredniony błąd kwadratowy (MSE) dla 3 wariantów liczby graczy (12, 24, 48 osób).
+- Wygenerowałam 3 wykresy słupkowe (.png) obrazujące różnice w jakości podziału drużyn między metodą losową a algorytmem genetycznym (PyGAD).
+- Opisałam w całości Sekcję 5 w dokumentacja.md (opis metryki MSE, podsumowanie wyników w tabeli oraz analiza skalowalności i efektywności optymalizacji).
+- Utworzyłam i wstępnie uzupełniłam strukturalnie plik sprints.txt.
+
+[Mateusz Paduch]
+Zrobiłem: 
+Na następne zajęcia zrobię: 
+
+Blokuje nas: nic
+Zobowiązanie zespołu na następne zajęcia: Sfinalizowanie dokumentacji i przygotowanie projektu do oddania.
