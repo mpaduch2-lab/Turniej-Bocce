@@ -24,11 +24,29 @@ Dane generowane są przy pomocy skrytpu generator.py. Generuje on po 3 niezależ
 
 ## 5. Ewaluacja *(B · 8 pkt)*
 
-> Co tu wpisać: metryka (ta z karty, pkt 8), punkt odniesienia (prosta metoda z karty), wyniki na kilku przypadkach — w tabeli albo na wykresie. Jedno–dwa zdania wniosku: czy system jest lepszy od punktu odniesienia i o ile.
+**Metryka:** Funkcja zrównoważenia drużyn oparta na średnim błędzie kwadratowym (MSE), mierząca odchylenie średnich statystyk poszczególnych drużyn od średniej wszystkich graczy w turnieju.
 
-| Przypadek / zbiór | Punkt odniesienia | Nasz system |
-|---|---|---|
-| … | … | … |
+**Punkt odniesienia:** Metoda bazowa polegająca na 1000 losowych prób podziału zawodników na 3-osobowe drużyny.
+
+#### Tabela z wynikami eksperymentu (Średnia wartość MSE):
+
+| Przypadek / Zbiór | Punkt odniesienia (Losowy) | Biblioteka PyGAD | Nasz Algorytm Genetyczny |
+| :--- | :--- | :--- | :--- |
+| **12 graczy** | 0.06611 | 0.01410 | *(uzupełni Mateusz)* |
+| **24 graczy** | 0.15129 | 0.05062 | *(uzupełni Mateusz)* |
+| **48 graczy** | 0.33194 | 0.16160 | *(uzupełni Mateusz)* |
+
+*Uwaga: Wartości w tabeli stanowią uśredniony błąd MSE wyznaczony z 3 niezależnych zestawów danych (v1, v2, v3).*
+
+#### Wykresy porównawcze:
+
+![Porównanie wyników 12 graczy](wykres_porownanie_12_graczy.png)
+![Porównanie wyników 24 graczy](wykres_porownanie_24_graczy.png)
+![Porównanie wyników 48 graczy](wykres_porownanie_48_graczy.png)
+
+#### Wnioski z przeprowadzonej analizy:
+1. **Wyraźna przewaga optymalizacji:** Zastosowanie algorytmu genetycznego z biblioteki PyGAD pozwoliło na wielokrotne obniżenie błędu zrównoważenia drużyn (MSE) w porównaniu do losowego podziału zawodników we wszystkich przetestowanych wariantach.
+2. **Skalowalność rozwiązania:** Dla standardowego turnieju (n = 48 graczy) przestrzeń możliwych podziałów jest astronomicznie duża. Metoda losowa uzyskuje bardzo wysoki błąd (MSE ≈ 0.33), podczas gdy PyGAD redukuje go ponad dwukrotnie (MSE ≈ 0.16), co dowodzi praktycznej skuteczności algorytmu genetycznego w rozwiązywaniu tego problemu.
 
 ## 6. Wymagania niefunkcjonalne *(A · 5 pkt)*
 
