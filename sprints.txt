@@ -10,7 +10,11 @@ Zrobiłam:
 
 [Mateusz Paduch]
 Zrobiłem: 
-Na następne zajęcia zrobię: 
+- wypełniłem kartę tematu
+- utworzyłem generator danych
+- uzupełniłem dokumentację o danych
+Na następne zajęcia zrobię:
+- implementację algorytmu genetycznego
 
 Blokuje nas: nic
 Zobowiązanie zespołu na następne zajęcia: Sfinalizowanie dokumentacji i przygotowanie projektu do oddania.
