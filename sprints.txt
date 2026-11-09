@@ -18,3 +18,17 @@ Na następne zajęcia zrobię:
 
 Blokuje nas: nic
 Zobowiązanie zespołu na następne zajęcia: Sfinalizowanie dokumentacji i przygotowanie projektu do oddania.
+
+=== Sprint 19.11 ===
+Implementacja algorytmu generycznego.
+
+[Mateusz Paduch]
+Zrobiłem: 
+- przeanalizowałem sposób zapisu problemu w postaci osobników i funkcji przystosowania
+- zaimplementowałem cały przebieg algorytmu genetycznego
+- zwizualizowałem wynik po wywołaniu algorytmu genetycznego
+- obliczyłem średnie wyniki na 30 próbach
+- uzupełniłem dokumentację dotyczącą wyników algorytmu genetycznego
+
+Blokuje nas: nic
+Zobowiązania zespołu na następne zajęcia:
