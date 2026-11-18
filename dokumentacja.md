@@ -5,11 +5,50 @@ Sztuczna inteligencja — laboratorium · Collegium Da Vinci · rok akad. 2026/2
 
 ## 1. Problem *(rubryka A)*
 
-> Co tu wpisać: kto ma problem, w jakiej sytuacji, co system dla niego robi. Co wchodzi do systemu, co z niego wychodzi. 3–6 zdań, rozwinięcie pkt 4 karty tematu.
+System będzie przeznaczony dla organizatorów/organizatorek turniejów. Dla zachowania największego napięcia wśród oglądających oraz zapewnienie poczucia sprawiedliwości i równego traktowania wszystkich, drużyny biorące udział w turnieju nie powinny znacząco odbiegać od siebie poziomem umiejętności, co jest trudne do zrobienia. System zwraca podział zawodników na drużyny z zachowaniem jak najmniejszej różnicy statystyk między drużynami.
+
+Do systemu wchodzą znormalizowane statystyki graczy (liczba graczy - wierszy musi być podzielna przez 3) wraz z ich imieniem i nazwiskiem w postaci pliku o rozszerzeniu .csv. Z systemu wychodzi lista indeksów oznaczających kolejność zawodników z których kolejne trójki składają się na jedną drużynę. Otrzymane drużyny mają zbliżone do siebie średnie statystyki.
 
 ## 2. Dlaczego SI i dlaczego ta technika *(B · 7 pkt)*
 
-> Co tu wpisać: dlaczego zwykły algorytm nie wystarcza (nie umiemy zapisać reguły / przepis jest za drogi / reguł jest za dużo). Dlaczego wybraliście tę technikę z modułu, a nie inną — jedno zdanie o tym, co by się stało przy alternatywie.
+Zwykły algorytm nie pasuje do problemu gdyż ma on zbyt wiele parametrów i możliwości - **przepis jest za drogi**. Algorytm zwykły zająłby zbyt dużo czasu dla dużej liczby uczestników. Ilość kombinacji do sprawdzenia dla n zawodników (podzielonych na drużyny trzyosobowe) wyraża się wzorem:
+
+$$
+T(n) = \frac{n!} {(3!)^{\frac{n} {3}}(\frac{n}{3})!}
+$$
+
+n musi być liczbą podzielną przez 3. $n!$ oznacza liczbę możliwych ustawień wszystkich osób. $(3!)^{\frac{n} {3}}$ oznacza brak zależności kolejności w każdej z $\frac n 3$ drużyn. $(\frac{n}{3})!$ oznacza brak znaczenia kolejności drużyn.
+
+| $n$ podzielne przez $3$ | $T(n)$ |
+| --- | --- |
+| $12$ | $15400$  |
+| $24$ | $\approx 1.18 \times10^{18}$  |
+| $48$ - standardowa ilość osób w turnieju | $\approx 1.23 \times10^{38}$  |
+
+Sprawdzając 1 miliard podziałów na sekundę sprawdzenie wszystkich podziałów dla 48 osób zajęłoby $3.9 \times 10^{21}$ lat, czyli więcej niż wiek Wszechświata.
+
+Algorytmy genetyczne bardzo szybko przeszukują duże przestrzenie rozwiązań i pozwalają znaleźć optymalny lub bliski optymalnemu podział w problemach kombinatorycznych, gdzie sprawdzenie wszystkich kombinacji jest niemożliwe obliczeniowo. 
+
+W tym przypadku pojedynczym osobnikiem (chromosomem) jest permutacja liczb od $1$ do $N$ (np. od $1$ do $48$ dla maksymalnego zbioru danych), gdzie każda liczba stanowi unikalny identyfikator gracza. Kolejne trójki elementów w tym ciągu tworzą bezpośrednio składy kolejnych drużyn (od $1$ do $\frac{N}{3}$, czyli dla $48$ graczy otrzymujemy $16$ zespołów).
+
+Aby zapewnić poprawność podziału, funkcja przystosowania (*fitness*) odrzuca nieprawidłowe rozwiązania, przypisując wartość $\infin$ tym ciągom, w których jakikolwiek zawodnik powtarza się w obrębie jednego osobnika. Dla poprawnych permutacji funkcja dąży do minimalizacji nierównowagi między zespołami i oblicza sumę ważonych kwadratów odchyleń średnich statystyk każdej drużyny od średniej globalnej wszystkich zawodników:
+
+$$
+\sum_{i=1}^{N/3} \sum_{j=1}^{7} w_j \left( \frac{1}{3} \left( S[x_{3i-2}, j] + S[x_{3i-1}, j] + S[x_{3i}, j] \right) - \mu_j \right)^2
+$$
+
+gdzie:
+* $N$ – całkowita liczba graczy (odpowiadająca liczbie genów w chromosomie),
+* $i$ – indeks drużyny ($i \in \{1, \dots, \frac{N}{3}\}$),
+* $j$ – indeks badanej statystyki gracza ($j \in \{1, \dots, 7\}$),
+* $x_k$ – identyfikator gracza na $k$-tej pozycji w chromosomie,
+* $S[x, j]$ – wartość $j$-tej statystyki dla gracza o identyfikatorze $x$,
+* $\mu_j$ – średnia wartość $j$-tej statystyki wyliczona dla wszystkich graczy biorących udział w turnieju,
+* $w_j$ – waga przypisana do $j$-tej statystyki.
+
+Wybraliśmy algorytm genetyczny zamiast przeglądu wszystkich możliwości (brute-force), ponieważ ten drugi przy 48 graczach załamałby się obliczeniowo ze względu na astronomiczną liczbę możliwych kombinacji podziału na drużyny.
+
+Nie wykorzystaliśmy sieci neuronowej, gdyż sieć neuronowa wymagałaby posiadania obszernego zbioru danych treningowych oraz skomplikowanej architektury (np. uczenia ze wzmocnieniem), podczas gdy podział graczy na zbalansowane drużyny to czysta optymalizacja kombinatoryczna, którą algorytm genetyczny rozwiązuje bezpośrednio i efektywnie bez potrzeby kosztownej fazy treningowej.
 
 ## 3. Dane *(B · 8 pkt)*
 
@@ -105,9 +144,9 @@ Dodatkowo eksperymenty przeprowadzane są na trzech wersjach plików danych (`v1
 
 | Przypadek / Zbiór | Punkt odniesienia (Losowy) | Biblioteka PyGAD | Nasz Algorytm Genetyczny |
 | :--- | :--- | :--- | :--- |
-| **12 graczy** | 0.06611 | 0.01410 | 0.01188 |
-| **24 graczy** | 0.15129 | 0.05062 | 0.01149 |
-| **48 graczy** | 0.33194 | 0.16160 | 0.01065 |
+| **12 graczy** | 0.06611 | 0.01410 | 0.01475 |
+| **24 graczy** | 0.15129 | 0.05062 | 0.04134 |
+| **48 graczy** | 0.33194 | 0.16160 | 0.10497 |
 
 *Uwaga: Wartości w tabeli stanowią uśredniony błąd MSE wyznaczony z 3 niezależnych zestawów danych (v1, v2, v3).*
 
@@ -151,4 +190,4 @@ python implementation_genetic_algorithm.py
 
 ## 11. Narzędzia AI
 
-> Co tu wpisać: czy korzystaliście z narzędzi AI (np. ChatGPT, Claude, Copilot) i do czego — kod, tekst, debugowanie. Jeśli nie — napiszcie „nie korzystaliśmy”. Pamiętajcie: każdą linię kodu musicie umieć wyjaśnić na obronie.
+Nie korzystaliśmy.
