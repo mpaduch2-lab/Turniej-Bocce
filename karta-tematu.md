@@ -62,12 +62,12 @@ Sprawdzając 1 miliard podziałów na sekundę sprawdzenie wszystkich podziałó
 
 Dlaczego ta technologia pasuje do tego problemu (2–3 zdania):
 
-Ta technologia bardzo szybko przeszukuje duże przestrzenie rozwiązań oraz znajduje optymalne lub bliskie optymalnemu rozwiązanie problemu. Osobnikiem w tym przypadku będzie ciąg liczb od 1 do 48 z którego każde kolejne 3 osoby trafiają odpowiednio do drużyn od 1 do 16. Funkcja przystosowania będzie przypisywać wartość $\infin$ tym ciągom, które będą posiadały powtórki, a dla pozostałych będzie obliczał:
+Ta technologia bardzo szybko przeszukuje duże przestrzenie rozwiązań oraz znajduje optymalne lub bliskie optymalnemu rozwiązanie problemu. Osobnikiem w tym przypadku będzie ciąg liczb od 1 do 48 z którego każde kolejne 3 osoby trafiają odpowiednio do drużyn od 1 do 16. Funkcja przystosowania będzie przypisywać wartość $\infty$ tym ciągom, które będą posiadały powtórki, a dla pozostałych będzie obliczał:
 
 $$
 \sum_{j=1}^7 w_j(\frac 1 3(S[x_{3i-2}, j] + S[x_{3i-1}, j] + S[x_{3i}, j]) - \mu_j)^2
 $$
-> Pkt 5 to pierwsza wersja sekcji 2 dokumentacji projektu („Dlaczego SI i dlaczego ta technika”). To, co tu napiszecie, rozwiniecie później w dokumentacji.
+
 
 ## 6. Dane
 
